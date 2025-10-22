@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book bazar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@500;600;700&family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <style id="sections-styles">
+       
+
+        /* CSS for section section:header */
+        .site-header {
+            background-color: var(--white);
+            box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 52px;
+        }
+
+        .logo img {
+            width: 113px;
+            height: 75px;
+            flex-shrink: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d9d9d9;
+            border-radius: 9999px;
+            padding: 8px 16px;
+            flex-grow: 1;
+            max-width: 239px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            background: transparent;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #1e1e1e;
+            min-width: 50px;
+        }
+
+        .search-bar .search-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .search-bar .search-button img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        .main-nav a {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--text-medium);
+            white-space: nowrap;
+        }
+
+        .login-btn {
+            font-size: 22px;
+            padding: 13.5px 55.5px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .header-content {
+                gap: 24px;
+            }
+
+            .main-nav a {
+                font-size: 20px;
+            }
+
+            .login-btn {
+                font-size: 18px;
+                padding: 12px 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+                /* Simple hiding for mobile, would need JS for a hamburger menu */
+            }
+
+            .search-bar {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                row-gap: 16px;
+            }
+
+            .search-bar {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* CSS for section section:hero */
+        .hero-section {
+            padding-top: 29px;
+            padding-bottom: 29px;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        /* CSS for section section:features */
+        .products-section {
+            padding-top: 47px;
+            padding-bottom: 47px;
+        }
+
+        .category-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 63px;
+        }
+
+        .tag-button {
+            padding: 13.5px 32px;
+            border-radius: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            min-width: 179px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card-image-wrapper {
+            background-color: var(--background-light);
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .card-image-wrapper img {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .card-content {
+            padding: 16px 32px 32px;
+        }
+
+        .product-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--text-medium);
+            margin: 0 0 8px 0;
+            min-height: 54px;
+            /* for 2 lines */
+        }
+
+        .product-price {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 41px;
+        }
+
+        @media (max-width: 768px) {
+            .tag-button {
+                font-size: 18px;
+                padding: 10px 24px;
+                min-width: auto;
+            }
+
+            .product-title {
+                font-size: 18px;
+                min-height: initial;
+            }
+
+            .product-price {
+                font-size: 28px;
+            }
+        }
+
+        /* CSS for section section:team */
+        .team-section {
+            padding-top: 38.5px;
+            padding-bottom: 38.5px;
+        }
+
+        .section-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: var(--text-medium);
+            margin: 0 0 40px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member-card {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .member-avatar {
+            width: 278px;
+            height: 264px;
+            object-fit: cover;
+            border-radius: 16px;
+            flex-shrink: 0;
+        }
+
+        .member-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .member-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text-light);
+            margin: 0 0 4px 0;
+        }
+
+        .member-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .member-bio {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 36px;
+                text-align: center;
+            }
+
+            .team-member-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .member-info {
+                align-items: center;
+            }
+        }
+
+        /* CSS for section section:footer */
+        .site-footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-subscribe-section {
+            background-color: rgba(27, 30, 107, 0.1);
+            padding: 47px 0;
+            text-align: center;
+        }
+
+        .footer-logo-slogan {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 52px;
+            margin-bottom: 85px;
+        }
+
+        .footer-logo {
+            width: 127px;
+            height: 93px;
+        }
+
+        .footer-logo-slogan .divider {
+            width: 1px;
+            height: 83px;
+            background-color: #626381;
+        }
+
+        .slogan {
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.5;
+            letter-spacing: 0.88px;
+            color: #000000;
+            text-align: left;
+            margin: 0;
+        }
+
+        .newsletter-form h3 {
+            font-weight: 500;
+            font-size: 26px;
+            color: #1b1e6b;
+            margin: 20px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            width: 400px;
+            height: 60px;
+            border: 1px solid #000000;
+            border-radius: 80px;
+            padding: 0 30px;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .subscribe-btn {
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            font-size: 22px;
+            padding: 13.5px 34px;
+        }
+
+        .subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 151px;
+            height: 29px;
+            background: #545ae8;
+            filter: blur(54px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 60px;
+        }
+
+        .footer-bottom-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 48px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links a,
+        .copyright {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 0.88px;
+        }
+
+        .footer-links .divider {
+            width: 1px;
+            height: 17px;
+            background-color: #626381;
+        }
+
+        .copyright {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-slogan .divider {
+            width: 1px;
+            height: 83px;
+            background-color: #626381;
+        }
+
+        .newsletter-form form {
+            flex-direction: column;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links .divider {
+            width: 1px;
+            height: 17px;
+            background-color: #626381;
+        }
+
+        .footer-links a,
+        .copyright {
+            font-size: 16px;
+        }
+    </style>
+    <script src="global.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="images/e83609e402e6a9ed5ecbef4ccb0e29079d5e5a00.png" alt="E-book bazar Logo">
+                </a>
+
+                
+                <form class="search-bar">
+                    <input type="text" placeholder="Search Here">
+                    <button type="submit" class="search-button">
+                        <img src="images/91_192.svg" alt="Search Icon">
+                    </button>
+                </form>
+
+
+
+
+                <div class="miad align-items-right">
+                    <div class="navbar  ">
+                        <div class="navbar-start">
+                            <div class="dropdown">
+                                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h8m-8 6h16" />
+                                    </svg>
+                                </div>
+                                <ul tabindex="0"
+                                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                                    <li>
+
+                                        <ul class="p-2">
+                                            <li><a>home</a></li>
+                                            <li><a>catagory</a></li>
+                                            <li><a>cart</a></li>
+                                            <li><a>about us</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="navbar-center hidden lg:flex">
+                            <ul>
+
+                                <li>
+
+
+                                    <ul class="flex gap-4 p-2">
+                                        <li><a>home</a></li>
+                                        <li><a>catagory</a></li>
+                                        <li><a>cart</a></li>
+                                        <li><a>about us</a></li>
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <a href="#" class="button login-btn">LOGIN</a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-banner">
+                <img src="images/ad8f476f09cc4ca38bbd184df0b9eb3b2320eeed.png"
+                    alt="Banner with books and Bengali text 'Boi ekhon muthophone'">
+            </div>
+        </div>
+    </section>
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="category-tags">
+                <a href="#" class="tag-button">Academic</a>
+                <a href="#" class="tag-button">Notes</a>
+                <a href="#" class="tag-button">Story</a>
+                <a href="#" class="tag-button">Novels</a>
+                <a href="#" class="tag-button">Horror</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/4b53373c58b7fc02afdd37af546a251979f891b2.png" alt="BSC Computer book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">BSC Computer</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/5fb4fd826577b4fca48ecb13081713fd8aba3ed0.png"
+                            alt="Elevating Learning book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Elevating Learning</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/80db6075cc31f59b27fbe88ee41f05c8feb93b07.png" alt="Data Structure book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Data Structure</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/088dd6897d9db368d23da9bd284abb4d2fc64b2f.png" alt="Web Development book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Web Development</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/36002d59ef6fb630b3bb928eb773fb4fe9d40b93.png"
+                            alt="Structure Programming C book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Structure Programming C</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/774252ac07ea64076d6f174ffcda94972b5ac684.png"
+                            alt="Probability and Statistics book cover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Probability and Statistics</h3>
+                        <p class="product-price">TK. 100</p>
+                    </div>
+                </article>
+            </div>
+            <div class="load-more-container">
+                <a href="#" class="button">LOAD MORE</a>
+            </div>
+        </div>
+    </section>
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Team Members</h2>
+            <div class="team-grid">
+                <article class="team-member-card">
+                    <img src="images/6f86a0ff9d2326079f38806ab0d8f82db31675b6.png" alt="Portrait of MD. MIAD IBNA NOOR"
+                        class="member-avatar">
+                    <div class="member-info">
+                        <div>
+                            <p class="member-role">Front-end Developer</p>
+                            <h3 class="member-name">MD. MIAD IBNA NOOR</h3>
+                        </div>
+                        <p class="member-bio">Normally I a graphic Designer and 3d artist. In here I work a front-end
+                            developer. With my visual experience and creative mind helps me to design th is full web
+                            design.</p>
+                        <div class="social-links">
+                            <a href="#"><img src="images/85_634.svg" alt="LinkedIn"></a>
+                            <a href="#"><img src="images/85_636.svg" alt="X"></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="team-member-card">
+                    <img src="images/d2d9ac54492cca38a04f71e93e8a667cc7b6c773.png"
+                        alt="Portrait of SOWROV CHANDRA SHUTRADHAR" class="member-avatar">
+                    <div class="member-info">
+                        <div>
+                            <p class="member-role">Back-end Developer</p>
+                            <h3 class="member-name">SOWROV CHANDRA SHUTRADHAR</h3>
+                        </div>
+                        <p class="member-bio">I’m a intermediate level back-end developer. I have a great knowledge to
+                            develop a website. I am very happy to work in this project.</p>
+                        <div class="social-links">
+                            <a href="#"><img src="images/85_646.svg" alt="LinkedIn"></a>
+                            <a href="#"><img src="images/85_648.svg" alt="X"></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-subscribe-section">
+            <div class="container">
+                <div class="footer-logo-slogan">
+                    <img src="images/e83609e402e6a9ed5ecbef4ccb0e29079d5e5a00.png" alt="E-book bazar Logo"
+                        class="footer-logo">
+                    <span class="divider"></span>
+                    <p class="slogan">Discover Books<br>You Want</p>
+                </div>
+                <div class="newsletter-form">
+                    <h3>Subscribe to get our Newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Your Email">
+                        <!--merged image-->
+                        <button type="submit" class="button subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="divider"></span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                    <p class="copyright">© 2025 || All Rights Reserved by MIAD KHAN</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>

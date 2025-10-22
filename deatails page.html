@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-book Bazar</title>
+  <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>E-book bazar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@500;600;700&family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <style id="sections-styles">
+
+
+/* CSS for section section:header */
+.site-header {
+            background-color: var(--white);
+            box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 52px;
+        }
+
+        .logo img {
+            width: 113px;
+            height: 75px;
+            flex-shrink: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d9d9d9;
+            border-radius: 9999px;
+            padding: 8px 16px;
+            flex-grow: 1;
+            max-width: 239px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            background: transparent;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #1e1e1e;
+            min-width: 50px;
+        }
+
+        .search-bar .search-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .search-bar .search-button img {
+            width: 16px;
+            height: 16px;
+        }
+
+
+
+
+        .main-nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        .main-nav a {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--text-medium);
+            white-space: nowrap;
+        }
+
+
+
+
+  .user-profile img {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+  }
+
+
+
+
+
+  @media (max-width: 1200px) {
+    .header-content {
+                gap: 24px;
+            }
+
+            .main-nav a {
+                font-size: 20px;
+            }
+  }
+
+  @media (max-width: 992px) {
+    .main-nav {
+                display: none;
+                /* Simple hiding for mobile, would need JS for a hamburger menu */
+            }
+
+            .search-bar {
+                max-width: none;
+            }
+  }
+  
+
+
+
+  @media (max-width: 768px) {
+    .header-content {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                row-gap: 16px;
+            }
+
+            .search-bar {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+            }
+  }
+
+/* CSS for section section:hero */
+.hero-section {
+    padding-top: 29px;
+            padding-bottom: 29px;
+  }
+  .hero-banner-img {
+    width: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+/* CSS for section section:main-content */
+.main-content {
+    margin-top: 37px;
+  }
+
+  /* Tags Section */
+  .tags-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 86px;
+    flex-wrap: wrap;
+    margin-bottom: 90px;
+  }
+  .tag-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 179px;
+    height: 60px;
+    background-color: var(--primary-blue);
+    border-radius: 60px;
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 22px;
+  }
+  
+  /* Book Details Section */
+  .book-details-section {
+    display: flex;
+    gap: 58px; /* (459 - (101+319)) + some adjustment */
+    align-items: flex-start;
+  }
+  .book-cover-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+  }
+  .book-cover-main {
+    width: 319px;
+    height: 514px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .want-to-read-btn {
+    width: 201px;
+    height: 67px;
+  }
+  .book-info-column {
+    flex-grow: 1;
+  }
+  .book-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 11px;
+  }
+  .book-author {
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .book-description {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 41px;
+  }
+  .book-meta-info {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .price-info .price-label {
+    font-weight: 700;
+    color: var(--primary-blue);
+  }
+  .price-info .original-price {
+    color: var(--primary-blue);
+    margin: 0 10px;
+  }
+  .price-info .current-price {
+    font-weight: 700;
+    color: var(--primary-blue);
+  }
+  .savings-info {
+    font-style: italic;
+  }
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: -100px; /* Overlap adjustment */
+  }
+  .action-buttons .btn {
+    width: 247px;
+    height: 83px;
+    border-radius: 30px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .action-buttons .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .action-buttons .btn-outline img {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Related Books Section */
+  .related-books-section {
+    margin-top: 100px; /* Approximate spacing */
+    text-align: center;
+  }
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 95px;
+    margin-bottom: 43px;
+  }
+  .related-book-cover {
+    width: 100%;
+    height: 410px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .load-more-btn {
+    width: 179px;
+    height: 60px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border-radius: 60px;
+    font-weight: 700;
+  }
+  .btn-secondary {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .tags-section { gap: 40px; }
+    .book-details-section { gap: 30px; }
+    .books-grid { gap: 30px; }
+  }
+  @media (max-width: 992px) {
+    .book-details-section {
+      flex-direction: column;
+      align-items: center;
+    }
+    .book-info-column {
+      width: 100%;
+    }
+    .action-buttons {
+      margin-top: 20px;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+    .books-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .tags-section { gap: 15px; margin-bottom: 40px; }
+    .tag-btn { width: 140px; height: 50px; font-size: 18px; }
+    .book-cover-main { width: 100%; max-width: 300px; height: auto; }
+    .books-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .related-book-cover { height: auto; }
+    .action-buttons .btn { width: 50%; max-width: 250px; }
+  }
+
+/* CSS for section section:footer */
+        .site-footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-subscribe-section {
+            background-color: rgba(27, 30, 107, 0.1);
+            padding: 47px 0;
+            text-align: center;
+        }
+
+        .footer-logo-slogan {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 52px;
+            margin-bottom: 85px;
+        }
+
+        .footer-logo {
+            width: 127px;
+            height: 93px;
+        }
+
+        .footer-logo-slogan .divider {
+            width: 1px;
+            height: 83px;
+            background-color: #626381;
+        }
+
+        .slogan {
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.5;
+            letter-spacing: 0.88px;
+            color: #000000;
+            text-align: left;
+            margin: 0;
+        }
+
+        .newsletter-form h3 {
+            font-weight: 500;
+            font-size: 26px;
+            color: #1b1e6b;
+            margin: 20px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            width: 400px;
+            height: 60px;
+            border: 1px solid #000000;
+            border-radius: 80px;
+            padding: 0 30px;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .subscribe-btn {
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            font-size: 22px;
+            padding: 13.5px 34px;
+        }
+
+        .subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 151px;
+            height: 29px;
+            background: #545ae8;
+            filter: blur(54px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 60px;
+        }
+
+        .footer-bottom-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 48px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links a,
+        .copyright {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 0.88px;
+        }
+
+        .footer-links .divider {
+            width: 1px;
+            height: 17px;
+            background-color: #626381;
+        }
+
+        .copyright {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-slogan .divider {
+            width: 1px;
+            height: 83px;
+            background-color: #626381;
+        }
+
+        .newsletter-form form {
+            flex-direction: column;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links .divider {
+            width: 1px;
+            height: 17px;
+            background-color: #626381;
+        }
+
+        .footer-links a,
+        .copyright {
+            font-size: 16px;
+        }
+    </style>
+    <script src="global.js" defer></script>
+</head>
+
+
+
+
+
+<body>
+
+
+<header class="site-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="images/e83609e402e6a9ed5ecbef4ccb0e29079d5e5a00.png" alt="E-book bazar Logo">
+                </a>
+
+
+
+
+
+
+                <form class="search-bar">
+                    <input type="text" placeholder="Search Here">
+                    <button type="submit" class="search-button">
+                        <img src="images/91_192.svg" alt="Search Icon">
+                    </button>
+                </form>
+
+
+
+                
+                <div class="miad align-items-right">
+                    <div class="navbar  ">
+                        <div class="navbar-start">
+                            <div class="dropdown">
+                                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h8m-8 6h16" />
+                                    </svg>
+                                </div>
+                                <ul tabindex="0"
+                                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                                    <li>
+
+                                        <ul class="p-2">
+                                            <li><a>home</a></li>
+                                            <li><a>catagory</a></li>
+                                            <li><a>cart</a></li>
+                                            <li><a>about us</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="navbar-center hidden lg:flex">
+                            <ul>
+
+                                <li>
+
+
+                                    <ul class="flex gap-4 p-2">
+                                        <li><a>home</a></li>
+                                        <li><a>catagory</a></li>
+                                        <li><a>cart</a></li>
+                                        <li><a>about us</a></li>
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+    <div class="user-profile">
+      <img src="images/102_771.svg" alt="User Profile">
+    </div>
+
+  </div>
+</header>
+
+
+
+<section id="hero" class="hero-section">
+  <div class="container">
+    <img src="images/ad8f476f09cc4ca38bbd184df0b9eb3b2320eeed.png" alt="Banner" class="hero-banner-img">
+  </div>
+</section>
+<main id="main-content" class="main-content">
+  <div class="container">
+    <section id="tags" class="tags-section">
+      <a href="#" class="tag-btn">Academic</a>
+      <a href="#" class="tag-btn">Notes</a>
+      <a href="#" class="tag-btn">Story</a>
+      <a href="#" class="tag-btn">Novels</a>
+      <a href="#" class="tag-btn">Horror</a>
+    </section>
+
+    <section id="book-details" class="book-details-section">
+      <div class="book-cover-column">
+        <img src="images/3ff99ec0ea5cf58a2bf0c1f57101964dfb6308f9.png" alt="The Little Story Book cover" class="book-cover-main">
+        <button class="btn btn-secondary want-to-read-btn">WANT TO READ</button>
+      </div>
+      <div class="book-info-column">
+        <h1 class="book-title">
+          The Little Story Book
+          <span class="book-author">(Jean Lumier)</span>
+        </h1>
+        <p class="book-description">
+          A beautiful collection of short stories that capture the essence of everyday life, emotions, and inspiration. Each story takes you on a heartfelt journey through moments that touch the soul.<br>
+          by Jean Lumier.<br><br>
+          Category: #1 Best Seller in Story Collection<br><br>
+          ⭐ 4.8/5 (287 Ratings) | 154 Reviews<br>
+          📘 Loved by over 1.1K readers
+        </p>
+        <div class="book-meta-info">
+          <p class="price-info">
+            <span class="price-label">Price:</span>
+            <s class="original-price">TK. 480</s>
+            <span class="current-price">TK. 430</span>
+          </p>
+          <p class="savings-info">💰 You Save TK. 50 (10%)</p>
+          <p class="stock-info">✅ In Stock (45 copies available)</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-outline">
+            <img src="images/102_807.svg" alt="Shopping Cart">
+            ADD CART
+          </button>
+          <button class="btn btn-primary">BUY NOW</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="related-books" class="related-books-section">
+      <div class="books-grid">
+        <img src="images/3ff99ec0ea5cf58a2bf0c1f57101964dfb6308f9.png" alt="Related Book 1" class="related-book-cover">
+        <img src="images/f493a6e94d09f8c5c48991c36e2b4814728a26cd.png" alt="Related Book 2" class="related-book-cover">
+        <img src="images/cc471a903a3b006931f6af72feba57ee3f0d87a8.png" alt="Related Book 3" class="related-book-cover">
+        <img src="images/75c77bb03dc205fe2cd28954f91c19b4fbed7823.png" alt="Related Book 4" class="related-book-cover">
+      </div>
+      <button class="btn btn-primary load-more-btn">LOAD MORE</button>
+    </section>
+  </div>
+</main>
+
+
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-subscribe-section">
+            <div class="container">
+                <div class="footer-logo-slogan">
+                    <img src="images/e83609e402e6a9ed5ecbef4ccb0e29079d5e5a00.png" alt="E-book bazar Logo"
+                        class="footer-logo">
+                    <span class="divider"></span>
+                    <p class="slogan">Discover Books<br>You Want</p>
+                </div>
+                <div class="newsletter-form">
+                    <h3>Subscribe to get our Newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Your Email">
+                        <!--merged image-->
+                        <button type="submit" class="button subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="divider"></span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                    <p class="copyright">© 2025 || All Rights Reserved by MIAD KHAN</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
